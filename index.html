@@ -22,6 +22,7 @@
       --card-bg: #ffffff;
       --border-radius: 8px;
       --transition-fast: 0.2s ease-in-out;
+      --fade-duration: 0.8s;
     }
 
     /* ---------- GLOBAL RESET & BASE ---------- */
@@ -54,6 +55,22 @@
     img {
       max-width: 100%;
       display: block;
+    }
+
+    /* ---------- FADE-IN ANIMATION ---------- */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    section {
+      animation: fadeIn var(--fade-duration) ease forwards;
+      opacity: 0;
     }
 
     /* ---------- HEADER / NAVBAR ---------- */
@@ -137,11 +154,12 @@
       padding: 0.75rem 1.5rem;
       border-radius: var(--border-radius);
       font-weight: 500;
-      transition: background-color var(--transition-fast);
+      transition: background-color var(--transition-fast), transform var(--transition-fast);
     }
     .hero .cta-btn:hover,
     .hero .resume-btn:hover {
       background-color: #1e40af;
+      transform: scale(1.05);
     }
 
     /* -------- CONTENT SECTIONS -------- */
@@ -149,10 +167,6 @@
       max-width: 1000px;
       margin: 2rem auto;
       padding: 0 1rem;
-    }
-
-    section {
-      margin-bottom: 3rem;
     }
 
     section h2 {
@@ -201,6 +215,10 @@
       border-radius: var(--border-radius);
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
       flex: 1;
+      transition: box-shadow var(--transition-fast);
+    }
+    .timeline-item .details:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
     .timeline-item .details h3 {
       font-size: 1.1rem;
@@ -244,10 +262,11 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: transform var(--transition-fast);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast);
     }
     .project-card:hover {
       transform: translateY(-4px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
     .project-card h3 {
       font-size: 1.05rem;
@@ -267,13 +286,13 @@
       color: var(--text-color);
     }
     .project-card a {
-      align-self: flex-start;
       font-weight: 500;
       color: var(--accent-color);
-      transition: color var(--transition-fast);
+      transition: color var(--transition-fast), transform var(--transition-fast);
     }
     .project-card a:hover {
       color: #1e40af;
+      transform: scale(1.02);
     }
 
     /* ---------- SKILLS ---------- */
@@ -291,11 +310,12 @@
       text-align: center;
       padding: 0.5rem;
       border-radius: var(--border-radius);
-      transition: background-color var(--transition-fast), color var(--transition-fast);
+      transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
     }
     .skill-badge:hover {
       background-color: var(--accent-color);
       color: #fff;
+      transform: scale(1.05);
     }
 
     /* ---------- CONTACT ---------- */
@@ -310,10 +330,11 @@
       gap: 0.5rem;
       font-weight: 500;
       color: var(--text-color);
-      transition: color var(--transition-fast);
+      transition: color var(--transition-fast), transform var(--transition-fast);
     }
     .contact-list a:hover {
       color: var(--accent-color);
+      transform: scale(1.02);
     }
 
     /* ---------- FOOTER ---------- */
@@ -340,6 +361,9 @@
       }
       .timeline-item .date {
         margin-bottom: 0.5rem;
+      }
+      .project-card {
+        flex-direction: column;
       }
     }
 
@@ -374,8 +398,8 @@
 
   <!-- ======= HERO ======= -->
   <section class="hero" id="hero">
-    <!-- Photo is already centered from the previous step -->
-    <img src="profile.jpg" alt="Esshaan Mahajan" />
+    <!-- Save your profile photo at images/profile.jpg -->
+    <img src="images/profile.jpg" alt="Esshaan Mahajan" />
     <h1>Hi, I’m Esshaan</h1>
     <p>
       A Computer Science Engineer specializing in Machine Learning, NLP, and Full-Stack Development, building
@@ -520,18 +544,21 @@
           <h3>Multimodal Chatbot</h3>
           <p class="date">Feb 2025 – Present</p>
           <p>
-            Built a GPT-4-powered chatbot for mental health detection, intervention, and consumer companionship, leveraging
-            multi-agent collaboration and deploying both web and mobile apps, Role: Lead developer and architect.
+            Built a GPT-4-powered chatbot for mental health detection, intervention,
+            and consumer companionship, leveraging multi-agent collaboration and
+            deploying both web and mobile apps, Role: Lead developer and architect.
           </p>
-          <a href="https://github.com/Esshaan-Mahajan/McIntireChatbot" target="_blank">View on GitHub →</a>
+          <a href="https://github.com/Esshaan-Mahajan/McIntireChatbot" target="_blank"
+            >View on GitHub →</a
+          >
         </div>
 
         <!-- Project: Entity Classification in Memes -->
         <div class="project-card">
           <h3>Entity Classification in Memes</h3>
           <p>
-            Classified meme entities into “hero, villain, victim, other” using CLIP, BERT embeddings, Tuned hyperparameters
-            to achieve a macro F1 of 45.01.
+            Classified meme entities into “hero, villain, victim, other” using CLIP,
+            BERT embeddings, Tuned hyperparameters to achieve a macro F1 of 45.01.
           </p>
           <a
             href="https://github.com/Esshaan-Mahajan/Entity_Classification_in_Memes"
@@ -544,8 +571,9 @@
         <div class="project-card">
           <h3>Poem Generator (Utkrisht)</h3>
           <p>
-            Created a poem generator using Markov Chains, LSTM, Collected, preprocessed a custom dataset of contemporary
-            poetry, Selected as a top 5 project in DTU’s Utkrisht summer research program.
+            Created a poem generator using Markov Chains, LSTM, Collected,
+            preprocessed a custom dataset of contemporary poetry, Selected as a
+            top 5 project in DTU’s Utkrisht summer research program.
           </p>
           <a href="https://github.com/Esshaan-Mahajan/Poem_generation" target="_blank"
             >View on GitHub →</a
@@ -556,8 +584,8 @@
         <div class="project-card">
           <h3>Blind People Navigator</h3>
           <p>
-            Developed an app that captures surroundings and uses MLP, RNN, CNN, NLP to generate spoken image descriptions
-            for visually impaired users.
+            Developed an app that captures surroundings and uses MLP, RNN, CNN, NLP
+            to generate spoken image descriptions for visually impaired users.
           </p>
         </div>
       </div>
