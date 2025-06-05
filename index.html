@@ -302,6 +302,7 @@
       display: flex;
       flex-direction: column;
       gap: 0.6rem;
+      margin-bottom: 2rem;
     }
     .contact-list a {
       display: inline-flex;
@@ -314,6 +315,46 @@
     .contact-list a:hover {
       color: var(--accent-color);
       transform: scale(1.02);
+    }
+
+    /* ---------- CONTACT FORM ---------- */
+    .contact-form {
+      background-color: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: var(--border-radius);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      max-width: 600px;
+      margin: 0 auto 2rem auto;
+    }
+    .contact-form label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 0.3rem;
+      color: var(--primary-color);
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.6rem 0.8rem;
+      margin-bottom: 1rem;
+      border: 1px solid #cbd5e1;
+      border-radius: var(--border-radius);
+      font-size: 1rem;
+      resize: vertical;
+    }
+    .contact-form button {
+      background-color: var(--accent-color);
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: var(--border-radius);
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color var(--transition-fast), transform var(--transition-fast);
+    }
+    .contact-form button:hover {
+      background-color: #1e40af;
+      transform: scale(1.05);
     }
 
     /* ---------- BACK TO TOP BUTTON ---------- */
@@ -402,7 +443,6 @@
 
   <!-- ======= HERO ======= -->
   <section class="hero" id="hero">
-    <!-- Using root-level profile.jpg -->
     <img src="profile.jpg" alt="Esshaan Mahajan" />
     <h1>Hi, I’m Esshaan</h1>
     <p>
@@ -410,15 +450,9 @@
       intelligent applications that solve real-world problems.
     </p>
 
-    <!-- ===== Download Résumé & Contact Buttons ===== -->
     <div class="btn-wrapper">
       <a class="cta-btn" href="#contact">Get in Touch</a>
-      <a
-        class="resume-btn"
-        href="Esshaan_Mahajan_Resume.pdf"
-        download
-        >Download Résumé</a
-      >
+      <a class="resume-btn" href="Esshaan_Mahajan_Resume.pdf" download>Download Résumé</a>
     </div>
   </section>
 
@@ -466,7 +500,6 @@
     <section id="experience">
       <h2>Experience</h2>
       <div class="timeline">
-        <!-- NLP Developer: UVA McIntire -->
         <div class="timeline-item">
           <div class="date">May 2024 – Present</div>
           <div class="details">
@@ -484,8 +517,6 @@
             </ul>
           </div>
         </div>
-
-        <!-- NLP Research Intern: DTU -->
         <div class="timeline-item">
           <div class="date">Nov 2021 – Nov 2022</div>
           <div class="details">
@@ -502,15 +533,11 @@
             </ul>
           </div>
         </div>
-
-        <!-- Deep Learning Research Intern: IITM -->
         <div class="timeline-item">
           <div class="date">Apr 2022 – Oct 2022</div>
           <div class="details">
             <h3>Deep Learning Research Intern</h3>
-            <p class="role">
-              Indian Institute of Tropical Meteorology (IITM), Govt. of India, Pune, India
-            </p>
+            <p class="role">Indian Institute of Tropical Meteorology (IITM), Govt. of India, Pune, India</p>
             <ul>
               <li>
                 Developed a pipeline to estimate global canopy heights (1980, 2020) using NASA GEDI LiDAR, meteorological
@@ -519,8 +546,6 @@
             </ul>
           </div>
         </div>
-
-        <!-- NLP Research Intern: IIIT-D -->
         <div class="timeline-item">
           <div class="date">Nov 2021 – Jul 2022</div>
           <div class="details">
@@ -541,7 +566,6 @@
     <section id="projects">
       <h2>Projects</h2>
       <div class="projects-grid">
-        <!-- Project: Multimodal Chatbot -->
         <div class="project-card">
           <h3>Multimodal Chatbot</h3>
           <p class="date">Feb 2025 – Present</p>
@@ -550,26 +574,16 @@
             and consumer companionship, leveraging multi-agent collaboration and
             deploying both web and mobile apps, Role: Lead developer and architect.
           </p>
-          <a href="https://github.com/Esshaan-Mahajan/McIntireChatbot" target="_blank"
-            >View on GitHub →</a
-          >
+          <a href="https://github.com/Esshaan-Mahajan/McIntireChatbot" target="_blank">View on GitHub →</a>
         </div>
-
-        <!-- Project: Entity Classification in Memes -->
         <div class="project-card">
           <h3>Entity Classification in Memes</h3>
           <p>
             Classified meme entities into “hero, villain, victim, other” using CLIP,
             BERT embeddings, Tuned hyperparameters to achieve a macro F1 of 45.01.
           </p>
-          <a
-            href="https://github.com/Esshaan-Mahajan/Entity_Classification_in_Memes"
-            target="_blank"
-            >View on GitHub →</a
-          >
+          <a href="https://github.com/Esshaan-Mahajan/Entity_Classification_in_Memes" target="_blank">View on GitHub →</a>
         </div>
-
-        <!-- Project: Poem Generator (Utkrisht) -->
         <div class="project-card">
           <h3>Poem Generator (Utkrisht)</h3>
           <p>
@@ -577,12 +591,8 @@
             preprocessed a custom dataset of contemporary poetry, Selected as a
             top 5 project in DTU’s Utkrisht summer research program.
           </p>
-          <a href="https://github.com/Esshaan-Mahajan/Poem_generation" target="_blank"
-            >View on GitHub →</a
-          >
+          <a href="https://github.com/Esshaan-Mahajan/Poem_generation" target="_blank">View on GitHub →</a>
         </div>
-
-        <!-- Project: Blind People Navigator -->
         <div class="project-card">
           <h3>Blind People Navigator</h3>
           <p>
@@ -598,12 +608,32 @@
     <!-- ======= CONTACT ======= -->
     <section id="contact">
       <h2>Contact</h2>
+
+      <!-- Static Contact Links -->
       <div class="contact-list">
         <a href="mailto:esshaan.mahajan@gmail.com">✉️ esshaan.mahajan@gmail.com</a>
         <a href="tel:+14347607572">📞 +1 434-760-7572</a>
         <a href="https://www.linkedin.com/in/esshaan-mahajan" target="_blank">🔗 LinkedIn</a>
         <a href="https://github.com/Esshaan-Mahajan" target="_blank">🐙 GitHub</a>
       </div>
+
+      <!-- Contact Form (Formspree) -->
+      <form
+        class="contact-form"
+        action="https://formspree.io/f/xpwrwgbo"
+        method="POST"
+      >
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="_replyto" required />
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
     </section>
   </div>
 
