@@ -1,9 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Esshaan Mahajan • Portfolio</title>
+
+  <!-- ========== SEO & SOCIAL PREVIEW META TAGS ========== -->
+  <!-- Basic SEO -->
+  <meta name="description" content="Esshaan Mahajan • MS in Computer Science (UVA). NLP & ML engineer building intelligent applications.">
+  <meta name="keywords" content="Esshaan Mahajan, Computer Science, Machine Learning, NLP, Portfolio, Resume">
+
+  <!-- Open Graph (Facebook, LinkedIn, etc.) -->
+  <meta property="og:title" content="Esshaan Mahajan • Portfolio">
+  <meta property="og:description" content="NLP & ML engineer with a Master’s from UVA, building cutting-edge AI solutions.">
+  <meta property="og:image" content="https://Esshaan-Mahajan.github.io/images/og_image.png">
+  <meta property="og:url" content="https://Esshaan-Mahajan.github.io">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Esshaan Mahajan • Portfolio">
+  <meta name="twitter:description" content="NLP & ML engineer building AI-driven applications.">
+  <meta name="twitter:image" content="https://Esshaan-Mahajan.github.io/images/og_image.png">
 
   <!-- Google Fonts -->
   <link
@@ -23,19 +41,19 @@
       --border-radius: 8px;
       --transition-fast: 0.2s ease-in-out;
       --fade-duration: 0.8s;
-      --nav-bg: var(--primary-color);          /* Default navbar bg */
-      --nav-text: #ffffff;                     /* Default navbar text */
+      --nav-bg: var(--primary-color);
+      --nav-text: #ffffff;
     }
 
-    /* Dark‐mode overrides */
+    /* Dark-mode overrides */
     [data-theme="dark"] {
-      --primary-color: #f1f5f9;    /* Now used for headings, etc. */
+      --primary-color: #f1f5f9;
       --accent-color: #2563eb;
       --light-accent: #334155;
       --text-color: #e2e8f0;
       --bg-color: #1e293b;
       --card-bg: #334155;
-      --nav-bg: var(--bg-color);   /* Navbar now matches page background */
+      --nav-bg: var(--bg-color);
       --nav-text: var(--text-color);
     }
 
@@ -663,7 +681,7 @@
   </div>
 
   <!-- ======= BACK TO TOP BUTTON ======= -->
-  <div id="backToTop">&#8679;</div>
+  <div id="backToTop" role="button" aria-label="Scroll to top">&#8679;</div>
 
   <!-- ======= FOOTER ======= -->
   <footer>
