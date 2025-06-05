@@ -295,28 +295,7 @@
       transform: scale(1.02);
     }
 
-    /* ---------- SKILLS ---------- */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 1rem;
-    }
-    .skill-badge {
-      background-color: var(--card-bg);
-      border: 2px solid var(--accent-color);
-      color: var(--accent-color);
-      font-weight: 500;
-      font-size: 0.95rem;
-      text-align: center;
-      padding: 0.5rem;
-      border-radius: var(--border-radius);
-      transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
-    }
-    .skill-badge:hover {
-      background-color: var(--accent-color);
-      color: #fff;
-      transform: scale(1.05);
-    }
+    /* ---------- SKILLS (Skipped) ---------- */
 
     /* ---------- CONTACT ---------- */
     .contact-list {
@@ -335,6 +314,31 @@
     .contact-list a:hover {
       color: var(--accent-color);
       transform: scale(1.02);
+    }
+
+    /* ---------- BACK TO TOP BUTTON ---------- */
+    #backToTop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: var(--accent-color);
+      color: #fff;
+      padding: 0.6rem 0.8rem;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity var(--transition-fast), visibility var(--transition-fast);
+      z-index: 500;
+    }
+    #backToTop:hover {
+      background-color: #1e40af;
+      transform: scale(1.1);
+    }
+    #backToTop.show {
+      opacity: 1;
+      visibility: visible;
     }
 
     /* ---------- FOOTER ---------- */
@@ -398,7 +402,7 @@
 
   <!-- ======= HERO ======= -->
   <section class="hero" id="hero">
-    <!-- Change src back to "profile.jpg" since it's in the root -->
+    <!-- Using root-level profile.jpg -->
     <img src="profile.jpg" alt="Esshaan Mahajan" />
     <h1>Hi, I’m Esshaan</h1>
     <p>
@@ -408,9 +412,7 @@
 
     <!-- ===== Download Résumé & Contact Buttons ===== -->
     <div class="btn-wrapper">
-      <!-- Existing “Get in Touch” button -->
       <a class="cta-btn" href="#contact">Get in Touch</a>
-      <!-- “Download Résumé” button (PDF remains in the root) -->
       <a
         class="resume-btn"
         href="Esshaan_Mahajan_Resume.pdf"
@@ -591,32 +593,7 @@
       </div>
     </section>
 
-    <!-- ======= SKILLS ======= -->
-    <section id="skills">
-      <h2>Skills</h2>
-      <div class="skills-grid">
-        <!-- Programming Languages -->
-        <div class="skill-badge">Python</div>
-        <div class="skill-badge">C / C++</div>
-        <div class="skill-badge">Java</div>
-        <div class="skill-badge">JavaScript</div>
-        <div class="skill-badge">HTML & CSS</div>
-        <div class="skill-badge">SQL / MySQL</div>
-        <!-- ML & Data Tools -->
-        <div class="skill-badge">PyTorch</div>
-        <div class="skill-badge">TensorFlow</div>
-        <div class="skill-badge">Scikit-learn</div>
-        <div class="skill-badge">Pandas & NumPy</div>
-        <div class="skill-badge">OpenCV</div>
-        <div class="skill-badge">NLTK</div>
-        <!-- Other Tools -->
-        <div class="skill-badge">AWS & GCP</div>
-        <div class="skill-badge">Docker & Git</div>
-        <div class="skill-badge">Tableau & Power BI</div>
-        <div class="skill-badge">React</div>
-        <div class="skill-badge">Node.js</div>
-      </div>
-    </section>
+    <!-- ======= SKILLS (Skipped) ======= -->
 
     <!-- ======= CONTACT ======= -->
     <section id="contact">
@@ -630,9 +607,29 @@
     </section>
   </div>
 
+  <!-- ======= BACK TO TOP BUTTON ======= -->
+  <div id="backToTop">&#8679;</div>
+
   <!-- ======= FOOTER ======= -->
   <footer>
     &copy; 2025 Esshaan Mahajan • All Rights Reserved
   </footer>
+
+  <script>
+    // Show/hide "Back to Top" button
+    const backToTop = document.getElementById("backToTop");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        backToTop.classList.add("show");
+      } else {
+        backToTop.classList.remove("show");
+      }
+    });
+
+    // Smooth scroll to top
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
 </body>
 </html>
