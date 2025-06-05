@@ -45,7 +45,7 @@
       --nav-text: #ffffff;
     }
 
-    /* Dark-mode overrides */
+    /* Dark‐mode overrides */
     [data-theme="dark"] {
       --primary-color: #f1f5f9;
       --accent-color: #2563eb;
@@ -67,15 +67,42 @@
     }
     html {
       scroll-behavior: smooth;
-      background-color: var(--bg-color);
-      color: var(--text-color);
+      /* No explicit background here—body will handle gradient vs. solid */
     }
     body {
       font-family: "Roboto", sans-serif;
-      background-color: var(--bg-color);
       color: var(--text-color);
       line-height: 1.6;
+
+      /* ---------- ANIMATED GRADIENT BACKGROUND (Light Mode) ---------- */
+      background: linear-gradient(
+        45deg,
+        #f1f5f9,
+        #d1d5db,
+        #e5e7eb,
+        #cbd5e1
+      );
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
     }
+    /* In dark mode, disable gradient and use a solid dark background */
+    [data-theme="dark"] body {
+      background: var(--bg-color);
+      animation: none;
+    }
+
+    @keyframes gradient {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
     a {
       text-decoration: none;
       color: inherit;
