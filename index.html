@@ -23,14 +23,20 @@
       --border-radius: 8px;
       --transition-fast: 0.2s ease-in-out;
       --fade-duration: 0.8s;
+      --nav-bg: var(--primary-color);          /* Default navbar bg */
+      --nav-text: #ffffff;                     /* Default navbar text */
     }
+
+    /* Dark‐mode overrides */
     [data-theme="dark"] {
-      --primary-color: #f1f5f9;
+      --primary-color: #f1f5f9;    /* Now used for headings, etc. */
       --accent-color: #2563eb;
       --light-accent: #334155;
       --text-color: #e2e8f0;
       --bg-color: #1e293b;
       --card-bg: #334155;
+      --nav-bg: var(--bg-color);   /* Navbar now matches page background */
+      --nav-text: var(--text-color);
     }
 
     /* ---------- GLOBAL RESET & BASE ---------- */
@@ -82,8 +88,8 @@
 
     /* ---------- HEADER / NAVBAR ---------- */
     header {
-      background-color: var(--primary-color);
-      color: #fff;
+      background-color: var(--nav-bg);
+      color: var(--nav-text);
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -101,6 +107,7 @@
       font-size: 1.5rem;
       font-weight: 700;
       letter-spacing: 1px;
+      color: var(--nav-text);
     }
     nav ul {
       display: flex;
@@ -109,6 +116,7 @@
     }
     nav ul li a {
       font-weight: 500;
+      color: var(--nav-text);
       transition: color var(--transition-fast);
     }
     nav ul li a:hover {
@@ -120,7 +128,7 @@
       border: none;
       font-size: 1.2rem;
       cursor: pointer;
-      color: #fff;
+      color: var(--nav-text);
       transition: transform var(--transition-fast);
     }
     .theme-toggle:hover {
