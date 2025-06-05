@@ -107,7 +107,8 @@
       object-fit: cover;
       border-radius: 50%;
       border: 4px solid var(--accent-color);
-      margin-bottom: 1rem;
+      /* Center horizontally: */
+      margin: 0 auto 1rem auto;
     }
     .hero h1 {
       font-family: "Montserrat", sans-serif;
@@ -365,7 +366,7 @@
 
   <!-- ======= HERO ======= -->
   <section class="hero" id="hero">
-    <!-- Now loading the uploaded profile.jpg -->
+    <!-- Now the photo is centered above the text -->
     <img src="profile.jpg" alt="Esshaan Mahajan" />
     <h1>Hi, I’m Esshaan</h1>
     <p>
@@ -380,11 +381,11 @@
     <section id="about" class="about">
       <h2>About Me</h2>
       <p>
-        I’m a recent UVA graduate (M.S. in Computer Science, GPA 3.9) with a strong background in AI/ML research and
-        software development. My work spans multimodal AI pipelines, NLP systems for mental health detection, and
-        full-stack apps. Passionate about building innovative solutions, whether forecasting financial data, creating
-        chatbots for social good, or optimizing deep learning models, I’m always eager to tackle new challenges and
-        collaborate on impactful projects.
+        I’m a recent UVA graduate (M.S. in Computer Science, GPA 3.9) with a strong background in AI/ML research
+        and software development. My work spans multimodal AI pipelines, NLP systems for mental health detection,
+        and full-stack apps. Passionate about building innovative solutions, whether forecasting financial data,
+        creating chatbots for social good, or optimizing deep learning models, I’m always eager to tackle new
+        challenges and collaborate on impactful projects.
       </p>
     </section>
 
@@ -398,7 +399,7 @@
             <h3>Master of Computer Science</h3>
             <p class="role">University of Virginia, Charlottesville, VA • GPA 3.9/4</p>
             <ul>
-              <li> Focused on Machine Learning, NLP, Data Science, and Software Engineering.</li>
+              <li>Focus: Machine Learning, NLP, Data Science, Software Engineering.</li>
             </ul>
           </div>
         </div>
@@ -408,7 +409,7 @@
             <h3>Bachelor of Technology, Computer Science &amp; Engineering</h3>
             <p class="role">Guru Gobind Singh Indraprastha University, New Delhi, India • GPA 3.95/4 (Silver Medalist)</p>
             <ul>
-              <li> Graduated top of class, awarded Silver Medal for academic excellence.</li>
+              <li>Graduated top of class, awarded Silver Medal for academic excellence.</li>
             </ul>
           </div>
         </div>
@@ -427,8 +428,8 @@
             <p class="role">UVA McIntire School of Commerce, Charlottesville, VA</p>
             <ul>
               <li>
-                Designed a multimodal architecture to detect and analyze anxiety, depression in public figures via social
-                media, outperforming baselines by 3.05%.
+                Designed a multimodal architecture to detect and analyze anxiety, depression in public figures via
+                social media, outperforming baselines by 3.05%.
               </li>
               <li>
                 Leveraged LLaMA, BERT, RoBERTa-base, XLM, and ViT to extract rich text/image embeddings for sentiment
