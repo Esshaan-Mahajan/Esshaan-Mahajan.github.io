@@ -3,312 +3,577 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Esshaan Mahajan – Resume</title>
+  <title>Esshaan Mahajan • Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap"
+    rel="stylesheet"
+  />
+
   <style>
-    /* ------ Global Styles ------ */
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-      line-height: 1.6;
+    /* ---------- CSS VARIABLES ---------- */
+    :root {
+      --primary-color: #1e293b;
+      --accent-color: #2563eb;
+      --light-accent: #ebf4ff;
+      --text-color: #334155;
+      --bg-color: #f1f5f9;
+      --card-bg: #ffffff;
+      --border-radius: 8px;
+      --transition-fast: 0.2s ease-in-out;
+    }
+
+    /* ---------- GLOBAL RESET & BASE ---------- */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      color: #333;
-      background-color: #f9f9f9;
     }
-    .container {
-      max-width: 800px;
-      margin: 2rem auto;
-      background-color: #fff;
-      padding: 2rem;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
+
+    html {
+      scroll-behavior: smooth;
     }
-    h1,
-    h2,
-    h3 {
-      margin: 0.5rem 0;
-      color: #222;
+
+    body {
+      font-family: "Roboto", sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
     }
-    h1 {
-      font-size: 2rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    h2 {
-      font-size: 1.4rem;
-      border-bottom: 2px solid #e0e0e0;
-      padding-bottom: 0.3rem;
-      margin-top: 1.5rem;
-    }
-    h3 {
-      font-size: 1.1rem;
-      margin-top: 1rem;
-    }
-    p {
-      margin: 0.4rem 0;
+
+    a {
+      text-decoration: none;
+      color: inherit;
     }
     ul {
-      margin: 0.3rem 0 0.3rem 1.2rem;
-      padding: 0;
+      list-style: none;
     }
-    li {
-      margin-bottom: 0.3rem;
+    img {
+      max-width: 100%;
+      display: block;
     }
-    a {
-      color: #0066cc;
-      text-decoration: none;
+
+    /* ---------- HEADER / NAVBAR ---------- */
+    header {
+      background-color: var(--primary-color);
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
-    a:hover {
-      text-decoration: underline;
+
+    .nav-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.5rem;
     }
-    .contact-info {
-      margin-top: 0.5rem;
+
+    .brand {
+      font-family: "Montserrat", sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav ul li a {
+      font-weight: 500;
+      transition: color var(--transition-fast);
+    }
+
+    nav ul li a:hover {
+      color: var(--accent-color);
+    }
+
+    /* -------- HERO SECTION -------- */
+    .hero {
+      background-color: var(--light-accent);
+      padding: 4rem 1rem;
+      text-align: center;
+    }
+    .hero h1 {
+      font-family: "Montserrat", sans-serif;
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto 1rem auto;
+      color: var(--text-color);
+    }
+    .hero .cta-btn {
+      display: inline-block;
+      margin-top: 1rem;
+      background-color: var(--accent-color);
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--border-radius);
+      font-weight: 500;
+      transition: background-color var(--transition-fast);
+    }
+    .hero .cta-btn:hover {
+      background-color: #1e40af;
+    }
+
+    /* -------- CONTENT SECTIONS -------- */
+    .container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    section h2 {
+      font-family: "Montserrat", sans-serif;
+      font-size: 1.75rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+      position: relative;
+    }
+    section h2::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 50px;
+      height: 4px;
+      background-color: var(--accent-color);
+      border-radius: 2px;
+    }
+
+    .about p {
+      max-width: 700px;
+      margin-bottom: 1rem;
+    }
+
+    /* ---------- EDUCATION & EXPERIENCE ---------- */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .timeline-item .date {
+      min-width: 120px;
       font-size: 0.9rem;
+      color: var(--accent-color);
+      font-weight: 500;
     }
-    .contact-info a {
-      margin-right: 1rem;
+    .timeline-item .details {
+      background-color: var(--card-bg);
+      padding: 1rem 1.2rem;
+      border-radius: var(--border-radius);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      flex: 1;
     }
-    .section-item {
-      margin-top: 0.8rem;
+    .timeline-item .details h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      color: var(--primary-color);
     }
-    .role-title {
-      font-weight: bold;
-    }
-    .role-details {
+    .timeline-item .details p.role {
       font-style: italic;
       font-size: 0.95rem;
-      color: #555;
+      margin-bottom: 0.8rem;
+      color: var(--text-color);
     }
-    .bullet-list {
+    .timeline-item .details ul {
+      margin-top: 0.5rem;
       margin-left: 1rem;
     }
-    .link-list {
-      list-style: none;
-      padding: 0;
+    .timeline-item .details ul li {
+      margin-bottom: 0.5rem;
+      position: relative;
+      padding-left: 1.2rem;
     }
-    .link-list li {
-      display: inline;
-      margin-right: 1rem;
+    .timeline-item .details ul li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent-color);
     }
-    footer {
-      margin-top: 2rem;
-      font-size: 0.85rem;
+
+    /* ---------- PROJECTS ---------- */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .project-card {
+      background-color: var(--card-bg);
+      border-radius: var(--border-radius);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform var(--transition-fast);
+    }
+    .project-card:hover {
+      transform: translateY(-4px);
+    }
+    .project-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.3rem;
+      color: var(--primary-color);
+    }
+    .project-card p.date {
+      font-style: italic;
+      font-size: 0.9rem;
+      margin-bottom: 0.6rem;
+      color: #555;
+    }
+    .project-card p {
+      flex: 1;
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      color: var(--text-color);
+    }
+    .project-card a {
+      align-self: flex-start;
+      font-weight: 500;
+      color: var(--accent-color);
+      transition: color var(--transition-fast);
+    }
+    .project-card a:hover {
+      color: #1e40af;
+    }
+
+    /* ---------- SKILLS ---------- */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem;
+    }
+    .skill-badge {
+      background-color: var(--card-bg);
+      border: 2px solid var(--accent-color);
+      color: var(--accent-color);
+      font-weight: 500;
+      font-size: 0.95rem;
       text-align: center;
-      color: #777;
+      padding: 0.5rem;
+      border-radius: var(--border-radius);
+      transition: background-color var(--transition-fast), color var(--transition-fast);
+    }
+    .skill-badge:hover {
+      background-color: var(--accent-color);
+      color: #fff;
+    }
+
+    /* ---------- CONTACT ---------- */
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .contact-list a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 500;
+      color: var(--text-color);
+      transition: color var(--transition-fast);
+    }
+    .contact-list a:hover {
+      color: var(--accent-color);
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      background-color: var(--primary-color);
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav ul {
+        flex-wrap: wrap;
+        margin-top: 0.5rem;
+      }
+      .timeline-item {
+        flex-direction: column;
+      }
+      .timeline-item .date {
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
 
 <body>
+  <!-- ======= HEADER / NAV ======= -->
+  <header>
+    <div class="nav-container">
+      <div class="brand">Esshaan Mahajan</div>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ======= HERO ======= -->
+  <section class="hero" id="hero">
+    <h1>Hi, I’m Esshaan</h1>
+    <p>
+      A Computer Science Engineer specializing in Machine Learning, NLP, and Full-Stack Development. I build
+      intelligent applications that solve real-world problems.
+    </p>
+    <a class="cta-btn" href="#contact">Get in Touch</a>
+  </section>
+
   <div class="container">
-    <!-- Header -->
-    <header>
-      <h1>Esshaan Mahajan</h1>
-      <div class="contact-info">
-        <span>United States</span> | 
-        <span>+1 434-760-7572</span> | 
-        <a href="mailto:esshaan.mahajan@gmail.com">esshaan.mahajan@gmail.com</a>
-        <br />
-        <ul class="link-list">
-          <li><a href="https://www.linkedin.com/in/esshaan-mahajan" target="_blank">LinkedIn</a></li>
-          <li><a href="https://github.com/Esshaan-Mahajan" target="_blank">GitHub</a></li>
-          <!-- If you have any certifications page or PDF, link here -->
-        </ul>
-      </div>
-    </header>
-
-    <!-- Education -->
-    <section>
-      <h2>Education</h2>
-
-      <div class="section-item">
-        <h3>University of Virginia, Engineering and Applied Sciences</h3>
-        <p class="role-details">Charlottesville, VA  | August 2023 – December 2024</p>
-        <p>Master of Computer Science  • GPA 3.9 / 4</p>
-      </div>
-
-      <div class="section-item">
-        <h3>Guru Gobind Singh Indraprastha University, New Delhi, India</h3>
-        <p class="role-details">August 2019 – May 2023</p>
-        <p>
-          Bachelor of Technology (Computer Science &amp; Engineering)  • USICT GPA 3.95 / 4 (Silver Medalist)
-        </p>
-      </div>
-    </section>
-
-    <!-- Skills -->
-    <section>
-      <h2>Skills</h2>
-
-      <div class="section-item">
-        <h3>Programming Languages</h3>
-        <p>Python, C++, C, Java, MySQL, HTML, CSS, JavaScript</p>
-      </div>
-
-      <div class="section-item">
-        <h3>Technical Skills</h3>
-        <p>
-          Programming, Machine Learning, Data Analysis, Web Scraping, Database Management, Software Engineering,
-          Version Control (Git), Testing, DevOps, Cloud Infrastructures &amp; Services, Automation, Generative AI, LLMs
-        </p>
-      </div>
-
-      <div class="section-item">
-        <h3>Tools &amp; Technologies</h3>
-        <p>
-          Pandas, Keras, Scikit-learn, NumPy, PyTorch, Matplotlib, OpenCV, TensorFlow, NLTK, Microsoft Office Suite,
-          Tableau, Database Management, SQL, Data Extraction, Validation &amp; Cleaning, .NET, PostgreSQL, Software Testing,
-          AWS, Quality Assurance, Google Cloud Platform (BigQuery), Microsoft Power BI, Microsoft Excel
-        </p>
-      </div>
-    </section>
-
-    <!-- Experience -->
-    <section>
-      <h2>Experience</h2>
-
-      <div class="section-item">
-        <h3 class="role-title">NLP Developer</h3>
-        <p class="role-details">UVA McIntire School of Commerce, Charlottesville, VA  | May 2024 – Present</p>
-        <ul class="bullet-list">
-          <li>
-            Created a new multimodal architecture for the detection and analysis of anxiety and depression in consumers
-            (especially public figures like CEOs) caused by different social media platforms.
-          </li>
-          <li>
-            Leveraged LLaMA, BERT, RoBERTa-base, XLM, and ViT models to outperform state-of-the-art baselines by at
-            least 3.05%.
-          </li>
-        </ul>
-      </div>
-
-      <div class="section-item">
-        <h3 class="role-title">NLP Research Intern</h3>
-        <p class="role-details">Delhi Technological University (DTU), New Delhi, India  | Nov 2021 – Nov 2022</p>
-        <ul class="bullet-list">
-          <li>
-            Designed a deep-learning ensemble-based multilingual hate speech &amp; cyberbully detector, improving F1 by
-            4.44%.
-          </li>
-          <li>
-            Published in <em>Expert Systems With Applications</em> and presented a paper on a linear-time-complexity
-            sorting technique at ICGNC.
-          </li>
-        </ul>
-      </div>
-
-      <div class="section-item">
-        <h3 class="role-title">Deep Learning Research Intern</h3>
-        <p class="role-details">
-          Indian Institute of Tropical Meteorology (IITM), Govt. of India, Pune, India  | Apr 2022 – Oct 2022
-        </p>
-        <ul class="bullet-list">
-          <li>
-            Devised &amp; implemented a novel approach to estimate global canopy heights (1980–2020) using NASA GEDI LiDAR,
-            meteorological datasets, Google Earth Engine, and Pratyush HPC.
-          </li>
-          <li>
-            Achieved an RMSE of 2.02—surpassing previous benchmarks.
-          </li>
-        </ul>
-      </div>
-
-      <div class="section-item">
-        <h3 class="role-title">NLP Research Intern</h3>
-        <p class="role-details">Indraprastha Institute of Information Technology (IIIT-D), New Delhi, India  | Nov 2021 – Jul 2022</p>
-        <ul class="bullet-list">
-          <li>
-            Led entity classification in multimodal meme data (hero/villain/victim/other) using OCR + image features,
-            deploying CLIP + BERT embeddings to maximize macro F1 (45.01).
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Projects -->
-    <section>
-      <h2>Projects</h2>
-
-      <div class="section-item">
-        <h3 class="role-title">Industry Project: Multimodal Chatbot</h3>
-        <p class="role-details">Virginia, February 2025 – Present</p>
-        <ul class="bullet-list">
-          <li>
-            Developed a multimodal chatbot leveraging GPT-4 for mental health detection, intervention, and consumer
-            companionship—integrating multi-agent collaboration—for UVA’s School of Commerce.
-          </li>
-          <li>
-            <a href="https://github.com/Esshaan-Mahajan/McIntireChatbot" target="_blank">GitHub Repo</a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="section-item">
-        <h3 class="role-title">NLP Intern: Entity Classification in Memes</h3>
-        <p class="role-details">New Delhi, January 2022 – July 2022</p>
-        <ul class="bullet-list">
-          <li>
-            Classified entities in memes into “hero,” “villain,” “victim,” or “other” using CLIP models + BERT embeddings.
-          </li>
-          <li>
-            Hyperparameter tuning to maximize macro F1; code available at 
-            <a href="https://github.com/Esshaan-Mahajan/Entity_Classification_in_Memes" target="_blank">GitHub Repo</a>.
-          </li>
-        </ul>
-      </div>
-
-      <div class="section-item">
-        <h3 class="role-title">Summer Research Program (Utkrisht): Rhyme and Reason</h3>
-        <p class="role-details">New Delhi, August 2021 – September 2021</p>
-        <ul class="bullet-list">
-          <li>
-            Built a contemporary poem generator using Markov Chains + LSTM; corpus collected &amp; preprocessed from
-            scratch. 
-          </li>
-          <li>Project selected among top 5 in the program.</li>
-          <li>
-            <a href="https://github.com/Esshaan-Mahajan/Poem_generation" target="_blank">GitHub Repo</a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="section-item">
-        <h3 class="role-title">Personal Project: Blind People Navigator</h3>
-        <p class="role-details">New Delhi, June 2021 – July 2021</p>
-        <ul class="bullet-list">
-          <li>
-            Created a tool that captures images of the surroundings and uses MLP, RNN, CNN, language models, and
-            word embeddings to generate spoken captions for visually impaired users.
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Publications -->
-    <section>
-      <h2>Publications</h2>
-      <ul class="bullet-list">
-        <li>
-          <strong>“EnsMulHateCyb: Multilingual Hate Speech and Cyberbully Detection in Online Social Media”</strong>,
-          <em>Expert Systems With Applications</em> – Esshaan Mahajan, Hemaank Mahajan, Sanjay Kumar.
-        </li>
-        <li>
-          <strong>“Hunch Emplacement Sort”</strong>, Int’l Conference on Graphs, Networks and Combinatorics (ICGNC) – Hemaank Mahajan,
-          Esshaan Mahajan, Sanjay Kumar.
-        </li>
-      </ul>
-    </section>
-
-    <!-- Footer -->
-    <footer>
+    <!-- ======= ABOUT ======= -->
+    <section id="about" class="about">
+      <h2>About Me</h2>
       <p>
-        View full CV as PDF:
-        <a href="https://drive.google.com/drive/folders/1kVpK1VOX6Rmi-J3gNsudpz5U7D4YO9Zk?usp=sharing" target="_blank">
-          Google Drive
-        </a>
+        I’m a recent UVA graduate (M.S. in Computer Science, GPA 3.9) with a strong background in AI/ML research and
+        software development. My work spans multimodal AI pipelines, NLP systems for mental health detection, and
+        full-stack apps. Passionate about building innovative solutions—whether forecasting financial data, creating
+        chatbots for social good, or optimizing deep learning models—I’m always eager to tackle new challenges and
+        collaborate on impactful projects.
       </p>
-      <p>&copy; 2025 Esshaan Mahajan. All rights reserved.</p>
-    </footer>
+    </section>
+
+    <!-- ======= EDUCATION ======= -->
+    <section id="education">
+      <h2>Education</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="date">Aug 2023 – Dec 2024</div>
+          <div class="details">
+            <h3>Master of Computer Science</h3>
+            <p class="role">University of Virginia, Charlottesville, VA • GPA 3.9/4</p>
+            <ul>
+              <li> Focused on Machine Learning, NLP, Data Science, and Software Engineering.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="date">Aug 2019 – May 2023</div>
+          <div class="details">
+            <h3>Bachelor of Technology, Computer Science &amp; Engineering</h3>
+            <p class="role">Guru Gobind Singh Indraprastha University, New Delhi, India • GPA 3.95/4 (Silver Medalist)</p>
+            <ul>
+              <li> Graduated top of class; awarded Silver Medal for academic excellence.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= EXPERIENCE ======= -->
+    <section id="experience">
+      <h2>Experience</h2>
+      <div class="timeline">
+        <!-- NLP Developer: UVA McIntire -->
+        <div class="timeline-item">
+          <div class="date">May 2024 – Present</div>
+          <div class="details">
+            <h3>NLP Developer</h3>
+            <p class="role">UVA McIntire School of Commerce, Charlottesville, VA</p>
+            <ul>
+              <li>
+                Designed a multimodal architecture to detect and analyze anxiety/depression in public figures via
+                social media, outperforming baselines by 3.05%.
+              </li>
+              <li>
+                Leveraged LLaMA, BERT, RoBERTa-base, XLM, and ViT to extract rich text/image embeddings for sentiment
+                analysis.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- NLP Research Intern: DTU -->
+        <div class="timeline-item">
+          <div class="date">Nov 2021 – Nov 2022</div>
+          <div class="details">
+            <h3>NLP Research Intern</h3>
+            <p class="role">Delhi Technological University (DTU), New Delhi, India</p>
+            <ul>
+              <li>
+                Built an ensemble-based multilingual hate speech and cyberbully detector; improved F1 score by 4.44%.
+              </li>
+              <li>
+                Co-authored paper in <em>Expert Systems With Applications</em> and presented a novel sorting technique at
+                ICGNC.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Deep Learning Research Intern: IITM -->
+        <div class="timeline-item">
+          <div class="date">Apr 2022 – Oct 2022</div>
+          <div class="details">
+            <h3>Deep Learning Research Intern</h3>
+            <p class="role">
+              Indian Institute of Tropical Meteorology (IITM), Govt. of India, Pune, India
+            </p>
+            <ul>
+              <li>
+                Developed a pipeline to estimate global canopy heights (1980–2020) using NASA GEDI LiDAR, meteorological
+                data, Google Earth Engine, and HPC; achieved RMSE 2.02—surpassing prior benchmarks.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- NLP Research Intern: IIIT-D -->
+        <div class="timeline-item">
+          <div class="date">Nov 2021 – Jul 2022</div>
+          <div class="details">
+            <h3>NLP Research Intern</h3>
+            <p class="role">Indraprastha Institute of Information Technology (IIIT-D), New Delhi, India</p>
+            <ul>
+              <li>
+                Led entity classification in multimodal memes (hero/villain/victim/other) using OCR + CLIP + BERT
+                embeddings; max macro F1 45.01.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= PROJECTS ======= -->
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="projects-grid">
+        <!-- Project: Multimodal Chatbot -->
+        <div class="project-card">
+          <h3>Multimodal Chatbot</h3>
+          <p class="date">Feb 2025 – Present</p>
+          <p>
+            Built a GPT-4–powered chatbot for mental health detection, intervention, and consumer companionship, leveraging
+            multi-agent collaboration and deploying both web and mobile apps. Role: Lead developer and architect.
+          </p>
+          <a href="https://github.com/Esshaan-Mahajan/McIntireChatbot" target="_blank">View on GitHub →</a>
+        </div>
+
+        <!-- Project: Entity Classification in Memes -->
+        <div class="project-card">
+          <h3>Entity Classification in Memes</h3>
+          <p>
+            Classified meme entities into “hero,” “villain,” “victim,” or “other” using CLIP + BERT embeddings. Tuned
+            hyperparameters to achieve a macro F1 of 45.01.
+          </p>
+          <a
+            href="https://github.com/Esshaan-Mahajan/Entity_Classification_in_Memes"
+            target="_blank"
+            >View on GitHub →</a
+          >
+        </div>
+
+        <!-- Project: Poem Generator (Utkrisht) -->
+        <div class="project-card">
+          <h3>Poem Generator (Utkrisht)</h3>
+          <p>
+            Created a poem generator using Markov Chains + LSTM. Collected and preprocessed a custom dataset of
+            contemporary poetry. Selected as a top-5 project in DTU’s Utkrisht summer research program.
+          </p>
+          <a href="https://github.com/Esshaan-Mahajan/Poem_generation" target="_blank"
+            >View on GitHub →</a
+          >
+        </div>
+
+        <!-- Project: Blind People Navigator -->
+        <div class="project-card">
+          <h3>Blind People Navigator</h3>
+          <p>
+            Developed an app that captures surroundings and uses MLP/RNN/CNN and NLP to generate spoken image
+            descriptions for visually impaired users.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= SKILLS ======= -->
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="skills-grid">
+        <!-- Programming Languages -->
+        <div class="skill-badge">Python</div>
+        <div class="skill-badge">C / C++</div>
+        <div class="skill-badge">Java</div>
+        <div class="skill-badge">JavaScript</div>
+        <div class="skill-badge">HTML & CSS</div>
+        <div class="skill-badge">SQL / MySQL</div>
+        <!-- ML & Data Tools -->
+        <div class="skill-badge">PyTorch</div>
+        <div class="skill-badge">TensorFlow</div>
+        <div class="skill-badge">Scikit-learn</div>
+        <div class="skill-badge">Pandas & NumPy</div>
+        <div class="skill-badge">OpenCV</div>
+        <div class="skill-badge">NLTK</div>
+        <!-- Other Tools -->
+        <div class="skill-badge">AWS & GCP</div>
+        <div class="skill-badge">Docker & Git</div>
+        <div class="skill-badge">Tableau & Power BI</div>
+        <div class="skill-badge">React</div>
+        <div class="skill-badge">Node.js</div>
+      </div>
+    </section>
+
+    <!-- ======= CONTACT ======= -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="contact-list">
+        <a href="mailto:esshaan.mahajan@gmail.com">✉️ esshaan.mahajan@gmail.com</a>
+        <a href="tel:+14347607572">📞 +1 434-760-7572</a>
+        <a href="https://www.linkedin.com/in/esshaan-mahajan" target="_blank">🔗 LinkedIn</a>
+        <a href="https://github.com/Esshaan-Mahajan" target="_blank">🐙 GitHub</a>
+      </div>
+    </section>
   </div>
+
+  <!-- ======= FOOTER ======= -->
+  <footer>
+    &copy; 2025 Esshaan Mahajan • All Rights Reserved
+  </footer>
 </body>
 </html>
