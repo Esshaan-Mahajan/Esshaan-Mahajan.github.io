@@ -12,7 +12,7 @@
   />
 
   <style>
-    /* ---------- CSS VARIABLES ---------- */
+    /* ---------- CSS VARIABLES (Light & Dark) ---------- */
     :root {
       --primary-color: #1e293b;
       --accent-color: #2563eb;
@@ -24,6 +24,14 @@
       --transition-fast: 0.2s ease-in-out;
       --fade-duration: 0.8s;
     }
+    [data-theme="dark"] {
+      --primary-color: #f1f5f9;
+      --accent-color: #2563eb;
+      --light-accent: #334155;
+      --text-color: #e2e8f0;
+      --bg-color: #1e293b;
+      --card-bg: #334155;
+    }
 
     /* ---------- GLOBAL RESET & BASE ---------- */
     *,
@@ -33,18 +41,17 @@
       margin: 0;
       padding: 0;
     }
-
     html {
       scroll-behavior: smooth;
+      background-color: var(--bg-color);
+      color: var(--text-color);
     }
-
     body {
       font-family: "Roboto", sans-serif;
       background-color: var(--bg-color);
       color: var(--text-color);
       line-height: 1.6;
     }
-
     a {
       text-decoration: none;
       color: inherit;
@@ -81,7 +88,6 @@
       top: 0;
       z-index: 1000;
     }
-
     .nav-container {
       max-width: 1000px;
       margin: 0 auto;
@@ -90,26 +96,35 @@
       justify-content: space-between;
       padding: 1rem 1.5rem;
     }
-
     .brand {
       font-family: "Montserrat", sans-serif;
       font-size: 1.5rem;
       font-weight: 700;
       letter-spacing: 1px;
     }
-
     nav ul {
       display: flex;
       gap: 1.5rem;
+      align-items: center;
     }
-
     nav ul li a {
       font-weight: 500;
       transition: color var(--transition-fast);
     }
-
     nav ul li a:hover {
       color: var(--accent-color);
+    }
+    /* Dark mode toggle button */
+    .theme-toggle {
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: #fff;
+      transition: transform var(--transition-fast);
+    }
+    .theme-toggle:hover {
+      transform: scale(1.1);
     }
 
     /* -------- HERO SECTION -------- */
@@ -138,7 +153,6 @@
       margin: 0 auto 1rem auto;
       color: var(--text-color);
     }
-
     /* CTA and Resume Buttons */
     .hero .btn-wrapper {
       display: flex;
@@ -168,7 +182,6 @@
       margin: 2rem auto;
       padding: 0 1rem;
     }
-
     section h2 {
       font-family: "Montserrat", sans-serif;
       font-size: 1.75rem;
@@ -186,7 +199,6 @@
       background-color: var(--accent-color);
       border-radius: 2px;
     }
-
     .about p {
       max-width: 700px;
       margin-bottom: 1rem;
@@ -198,7 +210,6 @@
       flex-direction: column;
       gap: 2rem;
     }
-
     .timeline-item {
       display: flex;
       gap: 1.5rem;
@@ -341,6 +352,8 @@
       border-radius: var(--border-radius);
       font-size: 1rem;
       resize: vertical;
+      background-color: var(--bg-color);
+      color: var(--text-color);
     }
     .contact-form button {
       background-color: var(--accent-color);
@@ -411,7 +424,6 @@
         flex-direction: column;
       }
     }
-
     @media (max-width: 480px) {
       .hero h1 {
         font-size: 2rem;
@@ -436,6 +448,12 @@
           <li><a href="#projects">Projects</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#contact">Contact</a></li>
+          <!-- Dark Mode Toggle Button -->
+          <li>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark Mode">
+              ☾
+            </button>
+          </li>
         </ul>
       </nav>
     </div>
@@ -449,7 +467,6 @@
       A Computer Science Engineer specializing in Machine Learning, NLP, and Full-Stack Development, building
       intelligent applications that solve real-world problems.
     </p>
-
     <div class="btn-wrapper">
       <a class="cta-btn" href="#contact">Get in Touch</a>
       <a class="resume-btn" href="Esshaan_Mahajan_Resume.pdf" download>Download Résumé</a>
@@ -646,6 +663,19 @@
   </footer>
 
   <script>
+    // Dark Mode Toggle
+    const themeToggle = document.getElementById("themeToggle");
+    themeToggle.addEventListener("click", () => {
+      const htmlEl = document.documentElement;
+      if (htmlEl.getAttribute("data-theme") === "dark") {
+        htmlEl.removeAttribute("data-theme");
+        themeToggle.textContent = "☾";
+      } else {
+        htmlEl.setAttribute("data-theme", "dark");
+        themeToggle.textContent = "☀️";
+      }
+    });
+
     // Show/hide "Back to Top" button
     const backToTop = document.getElementById("backToTop");
     window.addEventListener("scroll", () => {
