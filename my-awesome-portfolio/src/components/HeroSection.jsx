@@ -15,9 +15,18 @@ export default function HeroSection() {
             I design intelligent systems,<span className="tag-gradient"> blending ML, NLP, and design</span>, to make tech more human.
           </p>
           <div className="hero-btns">
-            <a href="timeline-section" className="btn-primary-glass">Explore Work ↓</a>
-            <a href="#contact" className="btn-glow">Let’s collaborate</a>
-          </div>
+  <button
+    className="btn-primary-glass"
+    onClick={() => {
+      const target = document.querySelector(".timeline-section");
+      if (target) target.scrollIntoView({ behavior: "smooth" });
+    }}
+  >
+    Explore Work ↓
+  </button>
+  <a href="#contact" className="btn-glow">Let’s collaborate</a>
+</div>
+
         </div>
       </div>
 
