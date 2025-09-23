@@ -6,10 +6,9 @@ export default function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
 
   function handleSubmit(e) {
-    e.preventDefault();
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 3000);
-    // Normally, you'd also send form data here!
+    // Instant feedback—Formspree handles submission!
   }
 
   return (
@@ -29,7 +28,14 @@ export default function ContactSection() {
           </a>
         ))}
       </div>
-      <form className="contact-form-glass" onSubmit={handleSubmit}>
+      <form
+        className="contact-form-glass"
+        action="https://formspree.io/f/xpwrwgbo"
+        method="POST"
+        onSubmit={e => {
+          handleSubmit(e);
+        }}
+      >
         <label htmlFor="name">Name</label>
         <input type="text" name="name" required />
         <label htmlFor="email">Email</label>
