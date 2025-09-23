@@ -12,10 +12,10 @@ export default function HeroSection() {
             <span className="fade-job-role">AI Engineer & Creative Coder</span>
           </h1>
           <p className="tagline">
-            I design intelligent systems—<span className="tag-gradient">blending ML, NLP, and design</span>—to make tech more human.
+            I design intelligent systems,<span className="tag-gradient"> blending ML, NLP, and design</span>, to make tech more human.
           </p>
           <div className="hero-btns">
-            <a href="#projects" className="btn-primary-glass">Explore Work ↓</a>
+            <a href="timeline-section" className="btn-primary-glass">Explore Work ↓</a>
             <a href="#contact" className="btn-glow">Let’s collaborate</a>
           </div>
         </div>
