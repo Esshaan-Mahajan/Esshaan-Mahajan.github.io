@@ -1,0 +1,25 @@
+section {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.8s forwards;
+  animation-delay: 0.1s;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Add bounce to cards on hover */
+.project-card:hover, .stat-card:hover {
+  animation: bounce 0.3s;
+}
+
+@keyframes bounce {
+  25% { transform: scale(1.03); }
+  50% { transform: scale(0.98); }
+  75% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}

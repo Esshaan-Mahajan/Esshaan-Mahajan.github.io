@@ -1,0 +1,64 @@
+.about-section-advanced {
+  margin: 4.5rem 0 2rem 0; text-align:center;
+}
+.about-section-advanced h2 {
+  font-size: 2.1rem;
+  background: linear-gradient(90deg, #16a34a 30%, #2563eb 85%);
+  -webkit-background-clip: text; color: transparent; margin-bottom: 2.1rem;
+}
+.about-glass-card {
+  background: rgba(255,255,255,0.17); backdrop-filter: blur(14px);
+  border-radius: 22px; box-shadow: 0 8px 28px 0 rgba(31,38,135,.15);
+  display: inline-block; max-width:570px; width:92vw; padding:2em 2.4em 1.4em 2.4em;
+  cursor:pointer; transition:.13s; animation: fadeUp .6s both;
+}
+.about-glass-card:focus, .about-glass-card:hover {
+  box-shadow: 0 16px 44px #2563eb1b;
+  background: rgba(255,255,255,0.25);
+}
+.about-headline {
+  font-size: 1.18em; color:#2563eb;
+  font-weight:700; margin-bottom:.95em;
+}
+.animated-headline {
+  background: linear-gradient(90deg, #09cfd1 35%, #2563eb 100%);
+  -webkit-background-clip: text; color: transparent;
+  animation: headlinepulse 3.5s infinite alternate;
+}
+@keyframes headlinepulse { to { letter-spacing:.08em; filter:brightness(1.11);}
+}
+.about-quote {
+  font-style: italic;
+  background: linear-gradient(90deg, #e1fcef88 0%, #dbeafe77 100%);
+  color:#16a34a; padding: .55em 1.2em; border-radius:16px; margin-bottom:.75em;
+  font-size: 1.03em;
+}
+.about-short {
+  color:#444657; font-size:1.07em; margin-bottom:.5em;
+}
+.about-readmore {
+  font-size:.99em; background: #2563eb22;
+  color: #2563eb; border-radius:9px; padding: .28em .7em;
+  font-weight:600; margin-left:.5em;
+}
+.about-modal-bg {
+  position:fixed; left:0;top:0;right:0;bottom:0;
+  background:rgba(20,25,37,0.54); backdrop-filter:blur(5px); z-index:90;
+  display:flex; align-items:center; justify-content:center;
+}
+.about-modal-card {
+  background: #fff; border-radius:18px; box-shadow:0 2px 22px #161b2c34;
+  max-width:420px; width:87vw; padding:2em 2em 1.2em 2em; text-align:left;
+  position:relative; animation: modalPop .4s cubic-bezier(.27,1.5,.71,.97) both;
+}
+@keyframes modalPop {
+  from{ transform: scale(.77); opacity:0;}
+  to{opacity:1;transform:none;}
+}
+.about-close {
+  position:absolute; right:.7em; top:.6em; border:none;
+  background:#edf2fb; color:#2563eb; border-radius:50%;
+  font-size:1.11rem; font-weight:700; padding:.32em .56em;
+  cursor:pointer; transition:.2s;
+}
+.about-close:hover { background:#2563eb; color:#fff;}
