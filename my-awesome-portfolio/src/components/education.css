@@ -1,65 +1,141 @@
-.education-section {
-  margin: 4rem 0 3rem 0;
-  padding: 0;
+/* =========================================
+   Education Section Styles
+   ========================================= */
+
+.education {
+  background: var(--color-bg);
 }
-.education-section h2 {
-  font-size: 2.1rem;
-  text-align: center;
-  letter-spacing: .01em;
-  background: linear-gradient(90deg, #2563eb 60%, #16a34a 100%);
-  -webkit-background-clip: text; color: transparent;
-  margin-bottom: 2.1rem;
+
+.education__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xl);
 }
-.education-glass-grid {
+
+.education__card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2xl);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--color-border);
   display: flex;
-  flex-wrap: wrap;
-  gap: 2.1rem;
+  gap: var(--space-xl);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.education__card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--color-accent), var(--color-accent-light));
+}
+
+.education__card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+}
+
+.education__icon {
+  display: flex;
+  align-items: center;
   justify-content: center;
-}
-.education-glass-card {
-  background: rgba(255,255,255,0.19);
-  backdrop-filter: blur(13px);
-  border: 1.5px solid #edf3fa91;
-  border-radius: 17px;
-  box-shadow: 0 8px 22px 0 rgba(31,38,135,.13);
-  padding: 2em 2em 1.15em 2em;
-  min-width: 270px;
-  max-width: 340px;
-  text-align: left;
-  transition:.18s; 
-  position:relative;
+  width: 64px;
+  height: 64px;
+  min-width: 64px;
+  background: linear-gradient(135deg, rgba(201, 162, 39, 0.1), rgba(201, 162, 39, 0.05));
+  border-radius: var(--radius-lg);
+  color: var(--color-accent);
 }
 
-.education-glass-card h3 {
-  margin: 0.2em 0 0.7em 0;
+.education__icon svg {
+  width: 32px;
+  height: 32px;
 }
 
-.edu-period {
-  font-size: .95em;
-  color: #60a5fa;
-  margin-bottom: 0.29em;
-  font-style: italic;
-  display:block;
+.education__content {
+  flex: 1;
 }
 
-.edu-place {
-  font-size: 1em; color: #16a34a;
-  margin-bottom:.73em; font-weight:600;
+.education__period {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  background: rgba(201, 162, 39, 0.1);
+  padding: var(--space-xs) var(--space-md);
+  border-radius: 50px;
+  margin-bottom: var(--space-md);
 }
 
-.education-icon {
-  position:absolute; top:1.19em; right:1.18em;
-  font-size: 2.3em;
-  opacity: 0.15;
+.education__degree {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: var(--space-sm);
 }
-.education-glass-card ul {
-  font-size: .97em;
-  color: #333753;
-  margin-left:.5em; margin-bottom:0;
-  padding-left: .7em;
-  list-style: disc;
+
+.education__place {
+  font-size: 1rem;
+  color: var(--color-text-light);
+  margin-bottom: var(--space-md);
 }
-@media (max-width: 780px) {
-  .education-glass-grid { flex-direction:column; align-items:center; gap:1.7em;}
-  .education-glass-card { max-width:96vw;}
+
+.education__details {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.education__details li {
+  position: relative;
+  padding-left: var(--space-lg);
+  margin-bottom: var(--space-sm);
+  font-size: 0.95rem;
+  color: var(--color-text);
+}
+
+.education__details li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  background: var(--color-accent);
+  border-radius: 50%;
+}
+
+.education__details li:last-child {
+  margin-bottom: 0;
+}
+
+/* Mobile Styles */
+@media (max-width: 1024px) {
+  .education__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .education__card {
+    flex-direction: column;
+    padding: var(--space-xl);
+    gap: var(--space-lg);
+  }
+
+  .education__icon {
+    width: 56px;
+    height: 56px;
+    min-width: 56px;
+  }
+
+  .education__icon svg {
+    width: 28px;
+    height: 28px;
+  }
 }
