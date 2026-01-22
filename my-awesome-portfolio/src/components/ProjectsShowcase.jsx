@@ -1,53 +1,62 @@
-import React, { useState } from "react";
-import { projects } from "../data/projects"; // Edit your projects in data file
-import "./projects.css"; // We'll create this for special glassy styles
+import React from 'react';
+import { projects } from '../data/projects';
+import './projects.css';
 
 const ProjectsShowcase = () => {
-  const [activeIdx, setActiveIdx] = useState(null);
-
   return (
-    <section className="projects-section">
-      <h2>Featured Projects</h2>
-      <div className="projects-glass-grid">
-        {projects.map((proj, idx) => (
-          <div
-            className="project-glass-card"
-            key={idx}
-            onClick={() => setActiveIdx(idx)}
-            tabIndex={0}
-            aria-label={`Open details for ${proj.title}`}
-          >
-            {/* Replace with an animated GIF or video for even more wow: */}
-            {proj.cover && (
-              <img src={proj.cover} className="project-cover" alt={proj.title} />
-            )}
-            <h3>{proj.title}</h3>
-            <span className="project-period">{proj.period}</span>
-            <p className="project-short">{proj.description.slice(0, 85)}...</p>
-            <span className="see-more">See Details →</span>
-          </div>
-        ))}
-      </div>
-      {/* Modal */}
-      {activeIdx !== null && (
-        <div className="project-modal-bg" onClick={() => setActiveIdx(null)}>
-          <div className="project-modal-card" onClick={e => e.stopPropagation()}>
-            <h2>{projects[activeIdx].title}</h2>
-            {projects[activeIdx].cover && (
-              <img src={projects[activeIdx].cover} className="modal-cover" alt="" />
-            )}
-            <p>{projects[activeIdx].description}</p>
-            {projects[activeIdx].link && (
-              <a href={projects[activeIdx].link} target="_blank" rel="noopener noreferrer">
-                View on GitHub →
-              </a>
-            )}
-            <button onClick={() => setActiveIdx(null)} className="close-modal">Close</button>
-          </div>
+    <section className="projects" id="projects">
+      <div className="container">
+        <div className="section-header">
+          <h2>Featured Projects</h2>
+          <p className="section-subtitle">
+            Innovative solutions combining AI/ML with full-stack development
+          </p>
         </div>
-      )}
+
+        <div className="projects__grid">
+          {projects.map((project, index) => (
+            <div key={index} className="project-card">
+              <div className="project-card__header">
+                <span className="project-card__number">0{index + 1}</span>
+                <span className="project-card__period">{project.period}</span>
+              </div>
+              
+              <h3 className="project-card__title">{project.title}</h3>
+              
+              <p className="project-card__description">{project.description}</p>
+              
+              <div className="project-card__tags">
+                {extractTechnologies(project.description).map((tech, idx) => (
+                  <span key={idx} className="project-card__tag">{tech}</span>
+                ))}
+              </div>
+              
+              <div className="project-card__footer">
+                <span className="project-card__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                    <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
+                  </svg>
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </section>
   );
+};
+
+// Helper function to extract technologies from description
+const extractTechnologies = (description) => {
+  const techKeywords = [
+    'BERT', 'ViT', 'BLIP', 'LLaVA', 'PyTorch', 'HuggingFace', 'React.js',
+    'CLIP', 'OCR', 'AWS', 'REST API', 'TensorFlow', 'NLP', 'Computer Vision'
+  ];
+  
+  return techKeywords.filter(tech => 
+    description.toLowerCase().includes(tech.toLowerCase())
+  ).slice(0, 4);
 };
 
 export default ProjectsShowcase;
