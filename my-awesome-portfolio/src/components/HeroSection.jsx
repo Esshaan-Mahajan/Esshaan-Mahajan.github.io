@@ -98,7 +98,7 @@ const HeroSection = () => {
             <div className="hero__title-wrapper">
               <span className="hero__title">AI/ML Engineer</span>
               <span className="hero__divider">|</span>
-              <span className="hero__title">Software Developer</span>
+              <span className="hero__title">Software Engineer</span>
             </div>
             <p className="hero__tagline">
               Building intelligent systems at the intersection of language, vision, and design.
