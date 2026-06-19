@@ -2,7 +2,7 @@ export const experiences = [
   {
     period: "Nov 2021 – Nov 2022",
     startDate: "2021-11",
-    title: "Software Engineer Intern",
+    title: "Machine Learning Engineer (Research)",
     company: "Delhi Technological University, New Delhi",
     details: [
       "Developed an ensemble-based multilingual hate speech and cyberbullying detector using BERT, LSTMs, and traditional classifiers, improving F1 score by 4.44% and releasing a full-stack prototype with API endpoints, web-based interface, and database integration for real-time content moderation.",
@@ -12,7 +12,7 @@ export const experiences = [
   {
     period: "Apr 2022 – Oct 2022",
     startDate: "2022-04",
-    title: "Software Engineer Intern",
+    title: "AI Research Scientist",
     company: "IITM (Govt. of India), Pune",
     details: [
       "Developed a deep learning pipeline for global canopy height estimation (1980–2020) using NASA GEDI LiDAR, meteorological datasets, and Google Earth Engine, optimized on Pratyush HPC.",
@@ -22,7 +22,7 @@ export const experiences = [
   {
     period: "May 2024 – Sep 2025",
     startDate: "2024-05",
-    title: "Software Engineer",
+    title: "AI Engineer",
     company: "University of Virginia, Charlottesville",
     details: [
       "Developed a multi-agent RAG framework with risk-aware triage and multi-voice argumentation, deploying DeBERTa models with distributed inference on AWS and a new influence metric to cut covert influence risks by 30% in financial conversations, enabling safer AI-driven investment recommendations and improving user trust."
@@ -31,7 +31,7 @@ export const experiences = [
   {
     period: "Aug 2025 – Present",
     startDate: "2025-08",
-    title: "Software Engineer",
+    title: "AI Engineer, Project Lead",
     company: "Dorothi.ai, Charlottesville",
     details: [
       "Developed an AI copilot to automate interior design workflows, reducing manual effort by ~70%.",
